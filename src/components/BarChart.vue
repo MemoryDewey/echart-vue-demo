@@ -19,6 +19,10 @@ export default {
     title: {
       type: String,
       default: '',
+    },
+    minValue: {
+      type: Number,
+      default: 0
     }
   },
   data() {
@@ -56,14 +60,16 @@ export default {
         ],
         yAxis: [
           {
-            type: 'value'
+            type: 'value',
+            min: this.minValue
           }
         ],
         series: [
           {
             name: 'Direct',
             type: 'bar',
-            barWidth: 30,
+            barMaxWidth: 30,
+            barMinWidth: 1,
             data: this.yData,
           }
         ]
